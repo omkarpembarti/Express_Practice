@@ -1,13 +1,8 @@
 const express = require('express')
+const logger = require('./Logger');
 const app = express()
 const port = 3000
 
-//MiddleWare
-
-const logger = (req,res,next)=>{
-console.log(`${req.method} | I am logger` );
-next();
-}
 
 
 app.get('/',logger, (req, res) => {
