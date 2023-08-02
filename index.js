@@ -2,7 +2,15 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-app.get('/', (req, res) => {
+//MiddleWare
+
+const logger = (req,res,next)=>{
+console.log(`${req.method} | I am logger` );
+next();
+}
+
+
+app.get('/',logger, (req, res) => {
   res.send('Hello Omkar !')
 })
 app.get('/users', (req, res) => {
